@@ -8,34 +8,31 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 <body>
-    <!-- Barra de Navegación Superior (Navbar) -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <style>
+        body {
+            background-color: lightgray;
+        }
+    </style>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow p-3">
         <div class="container-fluid">
-            <!-- Botón para abrir la Barra Lateral -->
             <button class="btn btn-dark me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
                 <i class="bi bi-list"></i>
             </button>
-
-            <!-- Logo de la farmacia -->
             <a class="navbar-brand" href="#">Cruz Azul</a>
-
-            <!-- Información del Usuario -->
             <div class="d-flex align-items-center ms-auto">
-                <span class="text-white me-3">{{ $user['name'] }} ({{ $user['role'] }})</span>
-
-                <!-- Iconos de Notificaciones, Mensajes y Perfil -->
+                @if(isset($user))
+                    <span class="text-white me-3">{{ $user['name'] }} ({{ $user['role'] }})</span>
+                @endif
                 <a href="#" class="text-white me-3">
-                    <i class="bi bi-bell"></i> <!-- Notificaciones -->
+                    <i class="bi bi-bell"></i>
                 </a>
                 <a href="#" class="text-white me-3">
-                    <i class="bi bi-envelope"></i> <!-- Mensajes -->
+                    <i class="bi bi-envelope"></i>
                 </a>
-                <!--menu desplegable del usuario-->
                 <div class="dropdown">
                 <a href="#" class="text-white dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-person-circle"></i> <!-- Perfil -->
+                    <i class="bi bi-person-circle"></i>
                 </a>
-
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="#">Configuración</a></li>
                         <li><a class="dropdown-item" href="#">Cambiar Contraseña</a></li>
@@ -46,9 +43,7 @@
             </div>
         </div>
     </nav>
-
-    <!-- Barra Lateral Desplegable (Sidebar) -->
-    <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
+    <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel " >
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasSidebarLabel">Menú</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -71,10 +66,10 @@
                     <a class="nav-link text-white" href="#"><i class="bi bi-people"></i> Clientes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#"><i class="bi bi-truck"></i> Proveedores</a>
+                    <a class="nav-link text-white" href="/proveedores"><i class="bi bi-truck"></i> Proveedores</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#"><i class="bi bi-bar-chart"></i> Reportes</a>
+                    <a class="nav-link text-white" href="/reporte"><i class="bi bi-bar-chart"></i> Reportes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#"><i class="bi bi-gear"></i> Configuración</a>
@@ -83,10 +78,8 @@
         </div>
     </div>
 
-    <!-- Contenido Principal -->
     <div class="container mt-4">
         <div class="row">
-            <!-- Panel de Resumen -->
             <div class="col-md-3 mb-3">
                 <div class="card text-white bg-primary">
                     <div class="card-body">
@@ -121,8 +114,9 @@
             </div>
         </div>
     </div>
-
-    <!-- Scripts de Bootstrap -->
+    <div class="container mt-4">
+        @yield('content')
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
