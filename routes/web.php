@@ -16,5 +16,7 @@ Route::get('/index',[InicioController::class , 'index'])->name('index');
 Route::get('/inventario', [inventarioDatosController::class, 'inventario']);
 Route::get('/reporte' , [ReporteController::class, 'Reporte']);
 Route::get('/proveedores',[PorveedoresController::class, 'Proveedores']);
-Route::get('/registrocliente',[ClientesController::class, 'registrocliente']);
-Route::get('/listaclientes',[listaclienteController::class, 'listaclientes']);
+Route::get('/registrocliente',[ClientesController::class, 'mostrarformulario']);
+Route::post('/guardar-clientes',[ClientesController::class, 'registrocliente']);
+Route::get('/listaclientes',[listaclienteController::class, 'listaclientes'])->name('dato_cliente.listaclientes');
+
