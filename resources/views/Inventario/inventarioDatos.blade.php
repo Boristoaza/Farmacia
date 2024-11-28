@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 <br>
-<div class="container-md shadow-ms">
+<div class="container-md shadow-ms mb-2">
   <div class="row">
     <div class="col-sm-3">
       <div class="card bg-light" style="height: 10rem;">
@@ -48,38 +48,37 @@
 </div>
 <br>
 <div class="container-md align-items-end">
-<table class="table table table-striped">
-  <thead>
-    <tr class="bg-dark">
-      <th scope="col">#</th>
-      <th scope="col">nombre</th>
-      <th scope="col">id</th>
-      <th scope="col">id del pais </th>
-    </tr>
-  </thead>
-  <tbody>
-  @foreach($prueba as $ciudad)
-    <tr>
-      <th scope="row">1</th>
-      <td>{{ $ciudad->nombre }}</td>
-      <td>{{ $ciudad->id }}</td>
-      <td>{{ $ciudad->pais_id }}</td>
-    </tr>
-  @endforeach
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-
+  <table class="table table-striped table-bordered shadow p-3 mb-5 bg-body rounded">
+    <thead class="bg-dark">
+      <tr class="bg-dark text-white">
+        <th scope="col" class="bg-dark text-white"  style="font-size: small;">ID del Producto</th>
+        <th scope="col" style="font-size: small;">Nombre del Producto</th>
+        <th scope="col" style="font-size: small;">Categoría</th>
+        <th scope="col" style="font-size: small;">Cantidad en Stock</th>
+        <th scope="col" style="font-size: small;">Precio de Compra</th>
+        <th scope="col" style="font-size: small;">Precio de Venta</th>
+        <th scope="col" style="font-size: small;">Proveedor</th>
+        <th scope="col" style="font-size: small;">Fecha de Registro</th>
+        <th scope="col" style="font-size: small;">Estado del Producto</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach($Producto as $producto)
+      <tr>
+        <td>{{ $producto->id}}</td>
+        <td>{{ $producto->nombre_producto }}</td>
+        <td>{{ $producto->categoria }}</td>
+        <td>{{ $producto->cantidad_stock }}</td>
+        <td>{{ $producto->precio_compra }}</td>
+        <td>{{ $producto->precio_venta }}</td>
+        <td>{{ $producto->proveedor }}</td>
+        <td>{{ $producto->proveedor }}</td>
+        <td>{{ $producto->proveedor }}</td>
+      </tr>
+      @endforeach
+    </tbody>
+  </table>
+</div>
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item disabled">

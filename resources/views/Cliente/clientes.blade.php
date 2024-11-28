@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body class="bg-light">
-
-    <div class="container mt-5 shadow " style="width: 30%;">
+@extends('index')
+@section('title' , 'Cliente')
+@section('content')
+<div class="bg-light  ">
+    <div class="container-xl mt-5 shadow ">
         <h2 class="text-center mb-3" style="font-size: 30px;">Registro de clientes</h2>
         <form action="/guardar-clientes" method="post">
 
@@ -40,11 +33,7 @@
             </div>
             <button type="submit" class="btn btn-primary mb-3">Registrar Cliente</button>
         </form>
-
     </div>
-    
-
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
-</html>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+@endsection()

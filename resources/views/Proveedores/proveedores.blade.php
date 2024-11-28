@@ -1,70 +1,58 @@
 @extends('index')
-@section('title', 'Porveedores')
+@section('title', 'Proveedores')
 @section('content')
-
-<div class="container-md shadow p-3 mb-3 bg-body-tertiary rounded">
-  <div class="row g-2">
-    <div>
-      <h2>Información General</h2>
-    </div>
-    <div class="col-12 col-md-6">
-      <div class="input-group mb-2">
-        <span class="input-group-text" id="inputGroup-sizing-default">Nombre de la empresa</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      </div>
-    </div>
-    <div class="col-12 col-md-6">
-      <div class="input-group mb-2">
-        <span class="input-group-text" id="inputGroup-sizing-default">DeRazón social</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      </div>
-    </div>
-    <div class="col-12 col-md-6">
-      <div class="input-group mb-2">
-        <span class="input-group-text" id="inputGroup-sizing-default">RUC</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-      </div>
-    </div>
-    <div class="col-12 col-md-6 mb-2">
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Tipo de proveedor</option>
-        <option value="1">bienes</option>
-        <option value="2">servicios</option>
-        <option value="3">mixto</option>
-      </select>
-    </div>
+<form action="{{ url('proveedores') }}" method="POST">
+  @csrf
+  @if(session('exito'))
+  <div class="alert alert-success">
+    {{ session('exito') }}
   </div>
-</div>
-
-<div class="container-md shadow p-3 mb-5 bg-body-tertiary rounded">
-  <div class="row g-2">
-    <div>
-      <h2>Información de Contacto</h2>
-    </div>
-    <div class="col-12 col-md-6">
-      <div class="input-group mb-2">
-        <span class="input-group-text" id="inputGroup-sizing-default">Nombre del contacto principal</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  @endif
+  <div class="container bg-light rounded md-3 mb-4">
+    <div class="row">
+      <div class="contanier text-center mt-3 mb-3">
+        <h3>Registrar Proveedores</h3>
+      </div>
+      <div class="col-12 col-md-4 mb-4 ">
+        <input type="text" class="form-control" name="nombre_de_la_empresa" placeholder="nombre la empresa" required>
+      </div>
+      <div class="col-12 col-md-4 mb-4 ">
+        <input type="text" class="form-control" name="tipo_proveedor" placeholder="tipo proveedor" required>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <input type="text" class="form-control" name="ruc" placeholder="Ruc" required>
       </div>
     </div>
-    <div class="col-12 col-md-6">
-      <div class="input-group mb-2">
-        <span class="input-group-text" id="inputGroup-sizing-default">Correo electrónico</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    <div class="row">
+      <div class="col-12 col-md-4 mb-4">
+        <input type="text" class="form-control" name="telefono" placeholder="telefono" required>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <input type="email" class="form-control" name="email" placeholder="email" required>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <input type="text" class="form-control" name="direccion" placeholder="direccion" required>
       </div>
     </div>
-    <div class="col-12 col-md-6">
-      <div class="input-group mb-2">
-        <span class="input-group-text" id="inputGroup-sizing-default">Teléfono</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    <div class="row">
+      <div class="col-12 col-md-4 mb-4">
+        <input type="text" class="form-control" name="cuenta_bancaria" placeholder="cuenta bancaria" required>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <input type="text" class="form-control" name="banco" placeholder="banco" required>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <input type="text" class="form-control" name="tipo_cuenta" placeholder="tipo cuenta" required>
       </div>
     </div>
-    <div class="col-12 col-md-6">
-      <div class="input-group mb-2">
-        <span class="input-group-text" id="inputGroup-sizing-default">Dirección</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+    <div class="row">
+      <div class="col-12 col-md-4 mb-4">
+        <input type="text" class="form-control" name="condiciones_pago" placeholder="condiciones pago" required>
+      </div>
+      <div class="col-12 col-md-4 mb-4">
+        <button type="submit" class="btn btn-primary w-100">Guardar</button>
       </div>
     </div>
   </div>
-</div>
+</form>
 @endsection

@@ -1,35 +1,45 @@
 @extends('index')
 @section('title' , 'Reporte')
 @section('content')
- <div class="container-xl mt-4  shadow p-3 mb-5 bg-body-tertiary rounded">
-  <div class="row g-3">
-    <div class="col-sm-6">
-      <div class="chart-container">
-        <canvas id="myChart"></canvas>
-      </div>
-    </div>
 
-    <div class="col-sm-6">
-      <div class="chart-container">
-        <canvas id="ProductosVendidos"></canvas>
-      </div>
+<div class="row g-3">
+  <!-- Primer contenedor -->
+  <div class="col col-md-5 mb-5 shadow ms-2 bg-body-tertiary rounded">
+    <div class="chart-container">
+      <canvas id="myChart"></canvas>
     </div>
   </div>
-  <div class="row g-3">
+
+  <!-- Segundo contenedor -->
+  <div class="col col-md-5 mb-5 shadow mb-2 ms-2 bg-body-tertiary rounded">
+    <div class="chart-container">
+      <canvas id="ProductosVendidos"></canvas>
+    </div>
+  </div>
+</div>
+
+
+<div class="row g-3">
+  <div class="col-sm-6 shadow p-3 mb-5 bg-body-tertiary rounded ">
     <div class="col-sm-6">
       <div class="chart-container">
         <canvas id="tendenciasDeVentas"></canvas>
       </div>
     </div>
+  </div>
+
+  <div class="col-sm-6 shadow p-3 mb-5 bg-body-tertiary rounded ">
     <div class="col-sm-6">
       <div class="chart-container">
         <canvas id="inventarioPorCategoria"></canvas>
       </div>
     </div>
+
   </div>
 </div>
 
- <style>
+
+<style>
 .chart-container {
   width: 100%;
   /* Asegura que los gráficos ocupen todo el ancho disponible */
