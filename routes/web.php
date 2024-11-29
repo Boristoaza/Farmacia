@@ -7,6 +7,7 @@ use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\PorveedoresController;
 
 use App\Http\Controllers\listaclienteController;
+use App\Http\Controllers\loginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,4 +20,4 @@ Route::get('/proveedores',[PorveedoresController::class, 'Proveedores']);
 Route::get('/registrocliente',[ClientesController::class, 'mostrarformulario']);
 Route::post('/guardar-clientes',[ClientesController::class, 'registrocliente']);
 Route::get('/listaclientes',[listaclienteController::class, 'listaclientes'])->name('dato_cliente.listaclientes');
-
+Route::get('/login',[loginController::class, 'sesionlogin']);

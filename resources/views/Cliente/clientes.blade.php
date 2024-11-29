@@ -9,7 +9,7 @@
 
 <body class="bg-light">
 
-    <div class="container mt-5 shadow " style="width: 30%;">
+    <div class="container mt-5 shadow" style="width: 30%;">
         <h2 class="text-center mb-3" style="font-size: 30px;">Registro de clientes</h2>
 
         <form  action="/guardar-clientes" method="POST">
