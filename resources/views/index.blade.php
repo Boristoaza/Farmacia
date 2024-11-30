@@ -70,16 +70,14 @@
                     <button class="btn btn-dark dropdown-toggle bi bi-people" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="position: absolute; inset: 0px auto auto 0px; margin: -39px; transform: translate(40px, 40px);" data-popper-placement="bottom-start">
                         Cliente
                     </button>
-                    <ul class="dropdown-menu dropdown-menu-dark position-static">
+                    <ul class="dropdown-menu dropdown-menu-dark position-static ">
                         <li><a class="dropdown-item text-white" href="/registrocliente">registro</a></li>
                         <li><a class="dropdown-item text-white" href="/listaclientes">Lista</a></li>
                     </ul>
                 </div>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#"><i class="bi bi-people"></i> Clientes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="/proveedores"><i class="bi bi-truck"></i> Proveedores</a>
+              
+                <li class="nav-item ">
+                    <a class="nav-link text-white" style="margin-top: 43px;" href="/proveedores"><i class="bi bi-truck"></i> Proveedores</a>
                 </li>
 
                 <li class="nav-item">
