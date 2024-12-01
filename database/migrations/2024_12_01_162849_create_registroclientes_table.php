@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cliente', function (Blueprint $table) {
+        Schema::create('registroclientes', function (Blueprint $table) {
             $table->id();
-            $table ->string('nombre',100);
-            $table ->string('apellido',100);
-            $table ->string('cedula',20)->unique();
-            $table ->string('telefono' , 20)->nullable();
-            $table ->timestamp('fecha_de_registro')->useCurrent();
-            $table ->text('direccion')->nullable();
+            $table->string('ruc');
+            $table->string('nombre');
+            $table->string('apellido');
+            $table->string('correo');
+            $table->integer('telefono');
+            $table->string('direccion');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cliente');
+        Schema::dropIfExists('registroclientes');
     }
 };

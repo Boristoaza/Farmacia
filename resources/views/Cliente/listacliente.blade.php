@@ -17,16 +17,17 @@
             </tr>
 
             <tbody>
-                
+                @foreach ($clientes as $key => $cliente)
                     <tr>
-                        <th scope="row">1</th>
-                        <td>09590269642001</td>
-                        <td>Saul</td>
-                        <td>Toaza</td>
-                        <td>saul692001@gmail.com</td>
-                        <td>0988230974</td>
-                        <td>Mapasingue oeste colinas de hipodromo</td>
+                        <th scope="row">{{$key + 1}}</th>
+                        <td>{{$cliente->ruc}}</td>
+                        <td>{{$cliente->nombre}}</td>
+                        <td>{{$cliente->apellido}}</td>
+                        <td>{{$cliente->correo}}</td>
+                        <td>{{$cliente->telefono}}</td>
+                        <td>{{$cliente->direccion}}</td>
                     </tr>
+                @endforeach
                 
                 
             </tbody>

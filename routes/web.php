@@ -19,4 +19,5 @@ Route::get('/proveedores', [PorveedoresController::class, 'Proveedores'])->name(
 Route::post('/proveedores', [PorveedoresController::class, 'store'])->name('proveedores.store');
 
 Route::get('/registrocliente',[ClientesController::class, 'registrocliente']);
-Route::get('/listaclientes',[listaclienteController::class, 'listaclientes']);
+Route::post('/guardar-clientes',[ClientesController::class, 'almacenamientodatos']);
+Route::get('/listaclientes',[listaclienteController::class, 'listaclientes'])->name('clientes.listaclientes');
