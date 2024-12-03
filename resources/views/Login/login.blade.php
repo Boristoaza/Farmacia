@@ -10,7 +10,7 @@
 </head>
 <body class="bg-dark">
     
-    <div class="container card shadow bg-dark" style="margin-top: 200px; width:400px; height:400px; border-radius:20px">
+    <div class="container card shadow bg-dark" style="margin-top: 200px; width:400px; height:460px; border-radius:20px">
 
         <form action="/iniciosesion" method="POST">
             @csrf
@@ -24,13 +24,13 @@
             
             <div class="input-group mb-3">
                 <span class="input-group-text" style="margin-top: 150px;"><i class="bi bi-person"></i></span>
-                <input type="email" class="form-control" id="correo" name="correo" 
+                <input type="email" class="form-control" id="email" name="email" 
                 placeholder="Usuario" style="margin-top: 150px; border-radius:0%;" required>
             </div>
             
             <div class="input-group mb-3">
                 <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                <input type="password" class="form-control" id="clave" name="clave" 
+                <input type="password" class="form-control" id="password" name="password" 
                 placeholder="Contraseña" style="border-radius: 0%;" required>
             </div>
             <div class="form-check" style="width: 50%;">
@@ -41,7 +41,13 @@
                 <a class="link-light opacity-75" href="#" style="margin-left: 210px;">Olvido su contraseña?</a>
             </div>
             
-            <button type="submit" class="btn btn-outline-primary w-100 opacity-75" style="margin-top: 20px;">Login</button>
+            <button type="submit" class="btn btn-outline-primary w-100 opacity-75 mb-3" style="margin-top: 20px;">Login</button>
+            <a href="/registrousuario">
+                <button type="button" class="btn btn-outline-light w-100 opacity-75">
+                    Crear Cuenta
+                </button>
+            </a>
+            
         </form>
         
         
