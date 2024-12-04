@@ -10,6 +10,7 @@
     <div class="container-xl mt-5 shadow bg-black-subttle">
         <h2 class="text-center mb-3">Crear cuenta</h2> 
         <form action="/guardar-usuario" method="POST">
+            @csrf
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="nombre" name="nombre">
