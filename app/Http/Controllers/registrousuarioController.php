@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\registrousuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class registrousuarioController extends Controller
@@ -13,12 +14,12 @@ class registrousuarioController extends Controller
     }
     public function guardarusuario(Request $request){
         $almacenador = $request -> validate([
-            'nombre' =>  'required|max:50',
+            'name' =>  'required|max:50',
             'apellido' => 'required|max:50',
-            'correo' => 'required|max:100',
-            'contrasena' => 'required|max:100',
+            'email' => 'required|max:100',
+            'password' => 'required|max:100',
         ]);
-        registrousuario::create($almacenador);
+        User::create($almacenador);
         return redirect('/registrousuario')->with('');
     }
 

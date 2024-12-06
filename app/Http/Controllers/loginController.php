@@ -11,3 +11,4 @@ class loginController extends Controller
         return view('Login.login');
     }
 }
+
