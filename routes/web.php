@@ -26,6 +26,7 @@ Route::post('/guardar-clientes',[ClientesController::class, 'almacenamientodatos
 Route::get('/listaclientes',[listaclienteController::class, 'listaclientes'])->name('clientes.listaclientes');
 
 Route::get('/login',[loginController::class, 'login']);
+Route::post('/iniciosesion',[loginController::class, 'autenticacion'])->name('autenticacion');
 
 Route::get('/registrousuario',[registrousuarioController::class, 'registrousuario']);
 Route::post('/guardar-usuario',[registrousuarioController::class, 'guardarusuario']);
