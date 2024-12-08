@@ -22,10 +22,17 @@ class loginController extends Controller
         ]);
 
         //buscar al usuario por email
+        /*user where usa el modelo para realizar una consulta asociada a la tabla por defecto
+        users, la clausula where filtra registro que tiene el campo email y first devuelve
+        el primer registro que coincida*/
+        //los corchetes permiten acceder al valor asociado como clave
+
         $usuario = User::where('email', $comprobacion['email'])->first();
         
         if($usuario && Hash::check($comprobacion['password'], $usuario->password)){
-            //crendenciales validas autentica al usuario el login es el metodo propio de laravel para autenticar
+            /*hash::check desencripta la contraseña almacenada 
+            y verifica si coincide con la ingresada.*/
+            // facadesauth ::login Es el método de autenticación propio de Laravel.
             FacadesAuth::login($usuario);
             //redirigir a la siguiente pantalla si esta todo correcto
             return redirect('/index');
