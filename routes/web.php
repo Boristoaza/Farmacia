@@ -7,7 +7,9 @@ use App\Http\Controllers\InventarioDatosController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\PorveedoresController;
 use App\Http\Controllers\listaclienteController;
+use App\Http\Controllers\listaproductosController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\nuevoproductoController;
 use App\Http\Controllers\registrousuarioController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +32,7 @@ Route::post('/iniciosesion',[loginController::class, 'autenticacion'])->name('au
 
 Route::get('/registrousuario',[registrousuarioController::class, 'registrousuario']);
 Route::post('/guardar-usuario',[registrousuarioController::class, 'guardarusuario']);
+
+Route::get('/listaproducto',[listaproductosController::class, 'listaproducto']);
+Route::get('/nuevoproducto',[nuevoproductoController::class, 'nuevoproducto']);
+Route::post('/enviarproducto',[nuevoproductoController::class , 'registroproducto']);
