@@ -16,24 +16,18 @@
                 <th scope="col" style="width: 200px;">Direccion</th>
             </tr>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>0959026964001</td>
-                    <td>Saul</td>
-                    <td>Toaza</td>
-                    <td>saul2564@gmail.com</td>
-                    <td>0986486166</td>
-                    <td>Mapasingue oeste</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>0959027095001</td>
-                    <td>Boris</td>
-                    <td>Toaza</td>
-                    <td>boris7@gmail.com</td>
-                    <td>0964325782</td>
-                    <td>Mapasingue oeste</td>
-                </tr>
+                @foreach($dato_cliente as $key =>$dato_cliente)
+                    <tr>
+                        <th scope="row">{{$key +1}}</th>
+                        <td>{{$dato_cliente->ruc}}</td>
+                        <td>{{$dato_cliente->nombre}}</td>
+                        <td>{{$dato_cliente->apellido}}</td>
+                        <td>{{$dato_cliente->correo}}</td>
+                        <td>{{$dato_cliente->telefono}}</td>
+                        <td>{{$dato_cliente->direccion}}</td>
+                    </tr>
+                @endforeach
+                
             </tbody>
         </table>
     </div>

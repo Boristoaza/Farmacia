@@ -8,7 +8,7 @@
     {{ session('exito') }}
   </div>
   @endif
-  <div class="container bg-light rounded md-3 mb-4">
+  <div class="container bg-light rounded md-3 mb-4 ">
     <div class="row">
       <div class="contanier text-center mt-3 mb-3">
         <h3>Registrar Proveedores</h3>
@@ -54,5 +54,103 @@
       </div>
     </div>
   </div>
+
+ <!-- buscador  -->
+<div class="container-fluid bg-light md-3 shadow p-3 mb-5 bg-body-tertiary rounded table-hover mt-3 mb-3">
+  <div class="row">
+    <div class="col-12 col-md-4 mb-4">
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" id="datoBuscador">
+      </form>
+    </div>
+    <div class="col-12 col-md-4 mb-4">
+      <button class="btn btn-outline-success" type="submit" id="BuscarPorveedor">Buscar</button>
+    </div>
+  </div>
+
+  <!-- Tabla responsiva -->
+  <div class="table-responsive">
+    <table class="table  table-hover">
+      <thead>
+        <tr>
+          <!-- <th scope="col">#</th> -->
+          <th scope="col">Nombre de la empresa</th>
+          <th scope="col">Ruc</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Email</th>
+          <th scope="col">Direccion</th>
+          <th scope="col">Cuenta bancaria</th>
+          <th scope="col">Bunco</th>
+          <th scope="col">Cuenta bancaria</th>
+          <th scope="col">Condicicones de pago</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($Datos as $dato)
+        <tr>
+          <td>{{$dato->nombre_de_la_empresa}}</td>
+          <td>{{$dato->ruc}}</td>
+          <td>{{$dato->telefono}}</td>
+          <td>{{$dato->email}}</td>
+          <td>{{$dato->direccion}}</td>
+          <td>{{$dato->cuenta_bancaria}}</td>
+          <td>{{$dato->banco}}</td>
+          <td>{{$dato->tipo_cuenta}}</td>
+          <td>{{$dato->condiciones_pago}}</td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+  </div>
+</div>
+
+    <script>
+    $(document).ready(function() {
+      $('#BuscarPorveedor').click(function(e) {
+        e.preventDefault();
+        const dato = $('#datoBuscador').val();
+        $.ajax({
+          url: '{{ route("proveedor.BuscarPorveedor") }}',
+          method: 'POST',
+          data: {
+            buscarProveedor: dato
+          },
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          success: function(respuesta) {
+            console.log('Respuesta del servidor:', respuesta);
+
+            // Limpia la tabla antes de insertar nuevos datos
+            $('table tbody').empty();
+
+            // Agrega las filas con los datos obtenidos
+            respuesta.forEach(element => {
+              $('table tbody').append(
+                "<tr>" +
+                "<td>" + element.nombre_de_la_empresa + "</td>" +
+                "<td>" + element.ruc + "</td>" +
+                "<td>" + element.telefono + "</td>" +
+                "<td>" + element.email + "</td>" +
+                "<td>" + element.direccion + "</td>" +
+                "<td>" + element.cuenta_bancaria + "</td>" +
+                "<td>" + element.banco + "</td>" +
+                "<td>" + element.tipo_cuenta + "</td>" +
+                "<td>" + element.condiciones_pago + "</td>" +
+                "</tr>"
+              );
+            });
+            // Limpia el campo de búsqueda
+            $('#datoBuscador').val('');
+          },
+          error: function(xhr, status, error) {
+            alert('Error al enviar datos: ' + error);
+          }
+        });
+      });
+    });
+    </script>
+  </div>
+
 </form>
 @endsection

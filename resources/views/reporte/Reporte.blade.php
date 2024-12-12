@@ -1,43 +1,37 @@
 @extends('index')
 @section('title' , 'Reporte')
 @section('content')
-
-<div class="row g-3">
-  <!-- Primer contenedor -->
-  <div class="col col-md-5 mb-5 shadow ms-2 bg-body-tertiary rounded">
-    <div class="chart-container">
-      <canvas id="myChart"></canvas>
+<div class="container bg-dark p-4">
+  <div class="row g-3">
+    <!-- Primer gráfico -->
+    <div class="col-12 col-md-5 shadow ms-2 bg-body-tertiary rounded">
+      <div class="chart-container">
+        <canvas id="myChart"></canvas>
+      </div>
     </div>
-  </div>
 
-  <!-- Segundo contenedor -->
-  <div class="col col-md-5 mb-5 shadow mb-2 ms-2 bg-body-tertiary rounded">
-    <div class="chart-container">
-      <canvas id="ProductosVendidos"></canvas>
+    <!-- Segundo gráfico -->
+    <div class="col-12 col-md-5 shadow ms-4 bg-body-tertiary rounded">
+      <div class="chart-container">
+        <canvas id="ProductosVendidos"></canvas>
+      </div>
     </div>
-  </div>
-</div>
 
-
-<div class="row g-3">
-  <div class="col-sm-6 shadow p-3 mb-5 bg-body-tertiary rounded ">
-    <div class="col-sm-6">
+    <!-- Tercer gráfico -->
+    <div class="col-12 col-md-5 shadow ms-2 bg-body-tertiary rounded">
       <div class="chart-container">
         <canvas id="tendenciasDeVentas"></canvas>
       </div>
     </div>
-  </div>
 
-  <div class="col-sm-6 shadow p-3 mb-5 bg-body-tertiary rounded ">
-    <div class="col-sm-6">
+    <!-- Cuarto gráfico -->
+    <div class="col-12 col-md-5 shadow ms-4 bg-body-tertiary rounded">
       <div class="chart-container">
         <canvas id="inventarioPorCategoria"></canvas>
       </div>
     </div>
-
   </div>
 </div>
-
 
 <style>
 .chart-container {
@@ -57,7 +51,7 @@ const ctx = document.getElementById('myChart');
 new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['Red', 'Blue', 'Yellow', 'Green', 'red', 'Orange'],
     datasets: [{
       label: 'Ventas por mes',
       data: [12, 19, 3, 5, 2, 3],
