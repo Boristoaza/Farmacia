@@ -36,3 +36,4 @@ Route::post('/guardar-usuario',[registrousuarioController::class, 'guardarusuari
 Route::get('/listaproducto',[listaproductosController::class, 'listaproducto']);
 Route::get('/nuevoproducto',[nuevoproductoController::class, 'nuevoproducto']);
 Route::post('/enviarproducto',[nuevoproductoController::class , 'registroproducto']);
+Route::post('/buscarproducto',[listaproductosController::class, 'busqueda']);
