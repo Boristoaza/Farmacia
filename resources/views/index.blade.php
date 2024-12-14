@@ -54,12 +54,18 @@
                     <a class="nav-link text-white" href="{{ route('index') }}"><i class="bi bi-house-door"></i> Dashboard</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#"><i class="bi bi-box"></i> Gestión de Productos</a>
-                </li>
+                <div class="dropdown">
+                    <button class="btn btn-dark dropdown-toggle bi bi-box" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-popper-placement="bottom-start" style="position: absolute; inset: 0px auto auto 0px; margin: -39px; transform: translate(40px, 40px);">
+                        Gestion de Productos
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark position-static">
+                        <li><a class="dropdown-item text-white" href="/nuevoproducto">Nuevo Producto</a></li>
+                        <li><a class="dropdown-item text-white" href="/listaproducto">Lista de productos</a></li>
+                    </ul>
+                </div>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/inventario"><i class="bi bi-cart-check"></i> Inventario</a>
+                    <a class="nav-link text-white" style="margin-top: 39px;" href="/inventario"><i class="bi bi-cart-check"></i> Inventario</a>
                 </li>
 
                 <li class="nav-item">

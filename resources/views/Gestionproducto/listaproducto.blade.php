@@ -57,7 +57,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
-        //esperar a que el formulario html este completamente cargado para ejecutar el codigo
+            //esperar a que el formulario html este completamente cargado para ejecutar el codigo
         $('document').ready(function(){
             //seleccionar el formulario buscarform y escuchar el evento
             $('#buscarform').on('submit',function(e){
