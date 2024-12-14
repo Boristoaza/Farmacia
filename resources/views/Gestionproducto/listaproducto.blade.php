@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
-    <div class="container-fluid mt-5">
+@extends('index')
+@section('title','listaproducto')
+@section('content')
+
+    <div class="container-xl mt-5">
         <h1 class="text-center mb-4">Lista de productos</h1>
         <nav class="navbar bg-light">
             <div class="container-fluid">
                 <form id="buscarform" class="d-flex " role="search" style="margin-left: -5px;" >
-                    <input id="buscarinput" type="search" class="form-control me-2" placeholder="Buscar producto........" style="width:1030px;">
+                    <input id="buscarinput" type="search" class="form-control me-2" placeholder="Buscar producto........" style="width:870px;">
                     <button type="submit" class="btn btn-outline-success" style="margin-right: 10px; width:90px;">Buscar</button>
                     <button type="submit" class="btn btn-outline-danger" style="width: 90px;">Eliminar</button>
                 </form>
@@ -49,11 +44,6 @@
     </div>
 
 
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
@@ -119,6 +109,4 @@
 
     </script>
 
-    
-</body>
-</html>
+@endsection
