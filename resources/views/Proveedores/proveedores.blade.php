@@ -1,6 +1,7 @@
 @extends('index')
 @section('title', 'Proveedores')
 @section('content')
+<script src="{{asset('js/Proveedor/proveedor.js')}}"></script>
 <form action="{{ url('proveedores') }}" method="POST">
   @csrf
   @if(session('exito'))
@@ -50,7 +51,7 @@
         <input type="text" class="form-control" name="condiciones_pago" placeholder="condiciones pago" required>
       </div>
       <div class="col-12 col-md-4 mb-4">
-        <button type="submit" class="btn btn-primary w-100">Guardar</button>
+        <button type="submit" class="btn btn-primary w-100" >Guardar</button>
       </div>
     </div>
   </div>
@@ -64,7 +65,7 @@
       </form>
     </div>
     <div class="col-12 col-md-4 mb-4">
-      <button class="btn btn-outline-success" type="submit" id="BuscarPorveedor">Buscar</button>
+      <button class="btn btn-outline-success" type="submit" id="BuscarPorveedor" data-url="{{route('proveedor.BuscarPorveedor')}}" >Buscar</button>
     </div>
   </div>
 
@@ -103,53 +104,6 @@
     </table>
   </div>
 </div>
-
-    <script>
-    $(document).ready(function() {
-      $('#BuscarPorveedor').click(function(e) {
-        e.preventDefault();
-        const dato = $('#datoBuscador').val();
-        $.ajax({
-          url: '{{ route("proveedor.BuscarPorveedor") }}',
-          method: 'POST',
-          data: {
-            buscarProveedor: dato
-          },
-          headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          },
-          success: function(respuesta) {
-            console.log('Respuesta del servidor:', respuesta);
-
-            // Limpia la tabla antes de insertar nuevos datos
-            $('table tbody').empty();
-
-            // Agrega las filas con los datos obtenidos
-            respuesta.forEach(element => {
-              $('table tbody').append(
-                "<tr>" +
-                "<td>" + element.nombre_de_la_empresa + "</td>" +
-                "<td>" + element.ruc + "</td>" +
-                "<td>" + element.telefono + "</td>" +
-                "<td>" + element.email + "</td>" +
-                "<td>" + element.direccion + "</td>" +
-                "<td>" + element.cuenta_bancaria + "</td>" +
-                "<td>" + element.banco + "</td>" +
-                "<td>" + element.tipo_cuenta + "</td>" +
-                "<td>" + element.condiciones_pago + "</td>" +
-                "</tr>"
-              );
-            });
-            // Limpia el campo de búsqueda
-            $('#datoBuscador').val('');
-          },
-          error: function(xhr, status, error) {
-            alert('Error al enviar datos: ' + error);
-          }
-        });
-      });
-    });
-    </script>
   </div>
 
 </form>
