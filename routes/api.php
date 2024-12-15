@@ -19,4 +19,5 @@ Route::post('/proveedor/buscar', [PorveedoresController::class, 'BuscarPorveedor
 Route::post('inventario/buscador' , [inventarioDatosController::class, 'buscadorInventario'])->name('donde.estaMiInventario');
 Route::post('inventario/eliminar', [inventarioDatosController::class , 'eliminarElementoIventario'] )->name('eliminar.dato');
 
-Route::post('inventario/agregar', [inventarioDatosController::class , 'agregarÍnventario'])->name('agregar.Inventario');
+
+Route::post('inventario/agregar' , [inventarioDatosController::class ,'agregarProductoInventario'])->name('agregar.Inventario');

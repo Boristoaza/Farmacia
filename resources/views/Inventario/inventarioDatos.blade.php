@@ -3,7 +3,7 @@
 @section('content')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-<script src="{{ asset('public/jule.js')}}" defer></script>
+<script src="{{ asset('js/Registrar/registrarInventario.js')}}" defer></script>
 <br>
 <div class="container-md shadow-ms mb-2">
   <div class="row">
@@ -49,83 +49,36 @@
 </div>
 <br>
 
-<div class="container shadow p-3 mb-5 bg-body-tertiary rounded table-hover mt-3 mb-3 ">
+<div class="container shadow p-3 mb-5 bg-body-tertiary rounded table-hover mt-3 mb-3">
   <div class="row g-3 mb-3">
     <h2>Registrar nuevo producto</h2>
     <div class="col-12 col-md-4 mb-4">
-      <input type="text" class="form-control" placeholder="Nombre del Producto" id="nombreDelProducto">
+      <input type="text" class="form-control" placeholder="Nombre del Producto" id="nombreDelProducto" required>
     </div>
-    <div class="col-12 col-md-4 mb-4 ">
-      <input type="text" class="form-control" placeholder="Categoría" id="categoría">
+    <div class="col-12 col-md-4 mb-4">
+      <input type="text" class="form-control" placeholder="Categoría" id="categoría" required>
     </div>
-    <div class="col-12 col-md-4 mb-4 ">
-      <input type="text" class="form-control" placeholder="Cantidad en Stock" id="cantidadEnStock">
+    <div class="col-12 col-md-4 mb-4">
+      <input type="number" class="form-control" placeholder="Cantidad en Stock" id="cantidadEnStock" required>
     </div>
   </div>
   <div class="row g-3">
     <div class="col-12 col-md-4 mb-4">
-      <input type="text" class="form-control" placeholder="Precio de Compra" id="precioDeCompra" >
+      <input type="number" class="form-control" placeholder="Precio de Compra" id="precioDeCompra" required>
     </div>
     <div class="col-12 col-md-4 mb-4">
-      <input type="text" class="form-control" placeholder="Precio de Venta" id="precioDeVenta">
+      <input type="number" class="form-control" placeholder="Precio de Venta" id="precioDeVenta" required>
     </div>
     <div class="col-12 col-md-4 mb-4">
-      <input type="text" class="form-control" placeholder="Proveedor" id="proveedor">
+      <input type="text" class="form-control" placeholder="Proveedor" id="proveedor" required>
     </div>
   </div>
   <div class="row">
-    <button type="submit" class="btn btn-primary" id="registrarPoducto"> Registrar </button>
+    <button type="submit" class="btn btn-primary" id="registrarPoducto" data-url="{{ route('agregar.Inventario') }}">Registrar</button>
   </div>
 </div>
-<br>
-<script>
-$(documenta).ready(function() {
-  $('#BuscadorInventario').click(function() {
-    const dato = $('#InputInventario').val();
-    $.ajax({
-      url: '{{route("donde.estaMiInventario")}}',
-      method: 'POST',
-      data: {
-        BuscadorInventario: dato,
-      },
-      header: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-      success: function(respuesta) {
-        console.log(respuesta);
-        alert('Éxito en el envío de datos: ' + JSON.stringify(respuesta['datos del query realizado']));
-      },
-      error: function(xhr, status, error) {
-        alert('Error fatal')
-      }
-    });
-  });
-});
 
-$(document).ready(function() {
-  $('#eliminarElementoInventario').click(function() {
-    const dato = $('#InputInventario').val();
-    $.ajax({
-      url: '{{route("eliminar.dato")}}',
-      method: 'POST',
-      data: {
-        eliminarDatoInventario: dato
-      },
-      header: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      },
-      success: function(respuesta) {
-        console.log(respuesta);
-        alert('se enviaoron los datos a ser eliminados' + JSON.stringify(respuesta[
-          'datos de la eliminacion']))
-      },
-      error: function(xhr, status, error) {
-        alert('error faltal');
-      }
-    });
-  });
-});
-</script>
+<br>
 
 <div class="container-md align-items-end">
   <div class="container bg-dark md-3 shadow p-3 mb-5 bg-body-tertiary rounded table-hover mt-3 mb-3 ">
@@ -138,7 +91,8 @@ $(document).ready(function() {
             Buscar
           </button>
           <button class="btn btn-outline-success " style="margin-left: 10px;" type="submit"
-            id="eliminarElementoInventario">Eliminar</button>
+            id="eliminarElementoInventario" data-url="{{route('eliminar.dato')}}" >
+            Eliminar</button>
         </form>
       </div>
 
@@ -192,4 +146,4 @@ $(document).ready(function() {
 </nav>
 </div>
 <div>
-  @endsection
+@endsection
