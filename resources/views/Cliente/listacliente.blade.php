@@ -1,8 +1,8 @@
-
 @extends('index')
 @section('title' , 'listado')
 @section('content')
-<div class="bg-light">
+<body class="bg-light">
+
     <div class="container mt-4 shadow ">
         <h1 class=" text-center mb-4">Lista de clientes</h1>
         <table class="table table-striped table-hover">
@@ -15,6 +15,7 @@
                 <th scope="col" style="width:200px;">Telefono</th>
                 <th scope="col" style="width: 200px;">Direccion</th>
             </tr>
+
             <tbody>
                 @foreach($dato_cliente as $key =>$dato_cliente)
                     <tr>
@@ -27,10 +28,23 @@
                         <td>{{$dato_cliente->direccion}}</td>
                     </tr>
                 @endforeach
-                
+
+                @foreach ($clientes as $key => $cliente)
+                    <tr>
+                        <th scope="row">{{$key + 1}}</th>
+                        <td>{{$cliente->ruc}}</td>
+                        <td>{{$cliente->nombre}}</td>
+                        <td>{{$cliente->apellido}}</td>
+                        <td>{{$cliente->correo}}</td>
+                        <td>{{$cliente->telefono}}</td>
+                        <td>{{$cliente->direccion}}</td>
+                    </tr>
+                @endforeach
+
+
             </tbody>
+
         </table>
+
     </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-@endsection()
+@endsection

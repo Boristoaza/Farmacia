@@ -11,9 +11,6 @@ $(document).ready(function () {
       precio_venta: $('#precioDeVenta').val(),
       proveedor: $('#proveedor').val(),
     };
-
-    alert('Datos enviados: ' + JSON.stringify(datos));
-
     $.ajax({
       url: dataUrl,
       method: 'POST',
@@ -22,8 +19,14 @@ $(document).ready(function () {
       },
       data: datos, // Enviar datos directamente
       success: function (respuesta) {
-        console.log('Respuesta:', respuesta);
-        alert('Producto registrado exitosamente: ' + JSON.stringify(respuesta));
+        $('#nombreDelProducto').val('');
+        $('#categoría').val('');
+        $('#cantidadEnStock').val('');
+        $('#precioDeCompra').val('');
+        $('#precioDeVenta').val('');
+        $('#proveedor').val('');
+
+        alert('Producto registrado exitosamente.');
       },
       error: function (error) {
         console.error('Error:', error);
@@ -43,32 +46,38 @@ $(document).ready(function () {
 //buscar un produncto en el inventario
 $(document).ready(function() {
   $('#BuscadorInventario').click(function() {
+    let urlInventario = $(this).data('url');
     const dato = $('#InputInventario').val();
+    alert('se presino el boton de buscar inventario ' + dato);
     $.ajax({
-      url: '{{route("donde.estaMiInventario")}}',
+      url: urlInventario,
       method: 'POST',
       data: {
         BuscadorInventario: dato,
       },
-      header: {
+      headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
       success: function(respuesta) {
         console.log(respuesta);
+        $('table tbody').empty();
+
 
         respuesta.array.forEach(element => {
           $('table tbody').append(
-            "<tr>" +
-            "<td>" + element.nombre_producto + "</td>" +
-            "<td>" + element.categoria + "</td>" +
-            "<td>" + element.cantidad_stock + "</td>" +
-            "<td>" + element.precio_compra + "</td>" +
-            "<td>" + element.precio_venta + "</td>" +
-            "<td>" + element.proveedor + "</td>" +
-            "</tr>"
+           "<tr>" +
+              "<td>" + element.nombre_producto + "</td>" +
+              "<td>" + element.categoria + "</td>" +
+              "<td>" + element.cantidad_stock + "</td>" +
+              "<td>" + element.precio_compra + "</td>" +
+              "<td>" + element.precio_venta + "</td>" +
+              "<td>" + element.proveedor + "</td>" +
+           "</tr>"
           )
         });
-        alert('Éxito en el envío de datos: ' + JSON.stringify(respuesta['datos del query realizado']));
+        $('#InputInventario').val('');
+
+        // alert('Éxito en el envío de datos: ' + JSON.stringify(respuesta['datos del query realizado']));
       },
       error: function(xhr, status, error) {
         alert('Error fatal')

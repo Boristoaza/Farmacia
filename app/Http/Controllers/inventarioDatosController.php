@@ -20,18 +20,21 @@ class inventarioDatosController extends Controller
     public function buscadorInventario(Request $request){
         $dato = $request->BuscadorInventario;
 
-        $queryBuscadorInventario = Producto::select([
-            'nombre_producto'
-            ,'categoria'
-            ,'cantidad_stock'
-            ,'precio_compra'
-            ,'precio_venta'
-            ,'proveedor' ])->where('nombre_producto', $dato )->get();
-
-            return response()->json([
-                'datos del query realizado'=> $queryBuscadorInventario
-            ]);
+        if (isset($dato)) {
+            $queryBuscadorInventario = Producto::select([
+                'nombre_producto'
+                ,'categoria'
+                ,'cantidad_stock'
+                ,'precio_compra'
+                ,'precio_venta'
+                ,'proveedor' ])->where('nombre_producto', $dato )->get();
+                return response()->json(['array' => $queryBuscadorInventario]);
+        } else {
+            $queryBuscadorInventario =Producto::all();
+                return response()->json(['array' => $queryBuscadorInventario]);
+        }
     }
+
     public function eliminarElementoIventario(Request $request){
 
         $dato = $request-> eliminarDatoInventario;
@@ -43,6 +46,7 @@ class inventarioDatosController extends Controller
             ,'precio_compra'
             ,'precio_venta'
             ,'proveedor'])->where('nombre_producto',$dato)->delete();
+
 
             return response()->json([
                 'los datos se eliminaron con exito' => $queryEliminarElemnto

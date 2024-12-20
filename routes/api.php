@@ -16,7 +16,7 @@ Route::get('/hola', function () {
 
 
 Route::post('/proveedor/buscar', [PorveedoresController::class, 'BuscarPorveedor'])->name('proveedor.BuscarPorveedor');
-Route::post('inventario/buscador' , [inventarioDatosController::class, 'buscadorInventario'])->name('donde.estaMiInventario');
+Route::post('inventario/buscador' , [inventarioDatosController::class, 'buscadorInventario'])->name('buscador.Inventario');
 Route::post('inventario/eliminar', [inventarioDatosController::class , 'eliminarElementoIventario'] )->name('eliminar.dato');
 
 

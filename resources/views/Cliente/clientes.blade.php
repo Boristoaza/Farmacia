@@ -4,6 +4,10 @@
 <div class="bg-light  ">
 
 <div class="container mt-5 shadow" style="width: 30%;">
+
+<div class="bg-light">
+
+    <div class="container-xl mt-5 shadow">
         <h2 class="text-center mb-3" style="font-size: 30px;">Registro de clientes</h2>
 
         <form  action="/guardar-clientes" method="POST">
@@ -40,5 +44,7 @@
             </div>
             <button type="submit" class="btn btn-primary mb-3 ">Registrar Cliente</button>
         </form>
+
     </div>
+</div>
 @endsection()

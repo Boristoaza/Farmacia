@@ -74,7 +74,8 @@
     </div>
   </div>
   <div class="row">
-    <button type="submit" class="btn btn-primary" id="registrarPoducto" data-url="{{ route('agregar.Inventario') }}">Registrar</button>
+    <button type="submit" class="btn btn-primary" id="registrarPoducto"
+      data-url="{{ route('agregar.Inventario') }}">Registrar</button>
   </div>
 </div>
 
@@ -87,11 +88,12 @@
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" id="InputInventario" placeholder="Buscar en inventario..."
             aria-label="Buscar">
-          <button class="btn btn-outline-success" type="submit" id="BuscadorInventario">
+          <button class="btn btn-outline-success" type="button" id="BuscadorInventario"
+            data-url="{{route('buscador.Inventario')}}">
             Buscar
           </button>
-          <button class="btn btn-outline-success " style="margin-left: 10px;" type="submit"
-            id="eliminarElementoInventario" data-url="{{route('eliminar.dato')}}" >
+          <button class="btn btn-outline-success " style="margin-left: 10px;" type="button"
+            id="eliminarElementoInventario" data-url="{{route('eliminar.dato')}}">
             Eliminar</button>
         </form>
       </div>
@@ -114,20 +116,21 @@
           <tbody>
             @foreach($Producto as $producto)
             <tr>
-              <td>{{ $producto->id}}</td>
+              <td>{{ $producto->id }}</td>
               <td>{{ $producto->nombre_producto }}</td>
               <td>{{ $producto->categoria }}</td>
               <td>{{ $producto->cantidad_stock }}</td>
               <td>{{ $producto->precio_compra }}</td>
               <td>{{ $producto->precio_venta }}</td>
               <td>{{ $producto->proveedor }}</td>
-              <td>{{ $producto->proveedor }}</td>
-              <td>{{ $producto->proveedor }}</td>
+              <td>{{ $producto->fecha_registro ?? 'Sin fecha' }}</td>
+              <td>{{ $producto->estado_producto ?? 'Sin estado' }}</td>
             </tr>
             @endforeach
           </tbody>
         </table>
       </div>
+
     </div>
   </div>
 </div>
@@ -146,4 +149,4 @@
 </nav>
 </div>
 <div>
-@endsection
+  @endsection

@@ -104,7 +104,7 @@
     </table>
   </div>
 </div>
-  </div>
+</div>
 
 </form>
 @endsection
