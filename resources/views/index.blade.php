@@ -8,12 +8,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="{{ asset('public/jule.js') }}" defer></script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Farmacéutico</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -81,6 +75,9 @@
                     <a class="nav-link text-white" href="#"><i class="bi bi-receipt"></i> Ventas y Facturación</a>
                 </li>
 
+                <li class="nev-item">
+                    <a class="nav-link text-white" href="/facturacion"><i class="bi bi-card-checklist"></i> factuacion</a>
+                </li>
                 <div class="dropdown">
                     <button class="btn btn-dark dropdown-toggle bi bi-people" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="position: absolute; inset: 0px auto auto 0px; margin: -39px; transform: translate(40px, 40px);" data-popper-placement="bottom-start">
                         Cliente

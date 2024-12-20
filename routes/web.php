@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\creacioncuenta;
+use App\Http\Controllers\FacturacionController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\InventarioDatosController;
 use App\Http\Controllers\ReporteController;
@@ -39,3 +40,5 @@ Route::get('/listaproducto',[listaproductosController::class, 'listaproducto']);
 Route::get('/nuevoproducto',[nuevoproductoController::class, 'nuevoproducto']);
 Route::post('/enviarproducto',[nuevoproductoController::class , 'registroproducto']);
 Route::post('/buscarproducto',[listaproductosController::class, 'busqueda']);
+
+Route::get('/facturacion',[FacturacionController::class , 'facturacion'] );
