@@ -13,4 +13,10 @@ class listaclienteController extends Controller
         $clientes = formulariocliente::all();
         return view('Cliente.listacliente',compact('clientes'));
     }
+    public function buscarcliente(Request $request){
+        $query = $request->input('query');
+        $buscarpersona = formulariocliente::where('nombre', 'LIKE' , "%{$query}%")->get();
+        return response()->json($buscarpersona);
+
+    }
 }
