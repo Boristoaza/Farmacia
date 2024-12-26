@@ -101,6 +101,16 @@
     </div>
 
     <div class="container mt-4">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <form class="d-flex mb-3" role="search">
+                    <input id="busquedaglobal" class="form-control" type="search" placeholder="Busqueda Global........." style="width: 1000px; margin-left:-10px;">
+                    <button type="submit" class="btn btn-outline-success" style="margin-left: 7px; width:103px">Buscar</button>
+                </form>
+            </div>
+        </nav>
+
+
         <div class="row">
             <div class="col-md-3 mb-3">
                 <div class="card text-white bg-primary">
