@@ -48,37 +48,54 @@
   </div>
 </div>
 <br>
+<!-- Button trigger modal -->
 
-<div class="container shadow p-3 mb-5 bg-body-tertiary rounded table-hover mt-3 mb-3">
-  <div class="row g-3 mb-3">
-    <h2>Registrar nuevo producto</h2>
-    <div class="col-12 col-md-4 mb-4">
-      <input type="text" class="form-control" placeholder="Nombre del Producto" id="nombreDelProducto" required>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container shadow p-3 mb-5 bg-body-tertiary rounded table-hover mt-3 mb-3">
+          <div class="row g-3 mb-3">
+            <h2>Registrar nuevo producto</h2>
+            <div class="col-12 col-md-4 mb-4">
+              <input type="text" class="form-control" placeholder="Nombre del Producto" id="nombreDelProducto" required>
+            </div>
+            <div class="col-12 col-md-4 mb-4">
+              <input type="text" class="form-control" placeholder="Categoría" id="categoría" required>
+            </div>
+            <div class="col-12 col-md-4 mb-4">
+              <input type="number" class="form-control" placeholder="Cantidad en Stock" id="cantidadEnStock" required>
+            </div>
+          </div>
+          <div class="row g-3">
+            <div class="col-12 col-md-4 mb-4">
+              <input type="number" class="form-control" placeholder="Precio de Compra" id="precioDeCompra" required>
+            </div>
+            <div class="col-12 col-md-4 mb-4">
+              <input type="number" class="form-control" placeholder="Precio de Venta" id="precioDeVenta" required>
+            </div>
+            <div class="col-12 col-md-4 mb-4">
+              <input type="text" class="form-control" placeholder="Proveedor" id="proveedor" required>
+            </div>
+          </div>
+          <div class="row">
+            <button type="submit" class="btn btn-primary" id="registrarPoducto"
+              data-url="{{ route('agregar.Inventario') }}">Registrar</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
-    <div class="col-12 col-md-4 mb-4">
-      <input type="text" class="form-control" placeholder="Categoría" id="categoría" required>
-    </div>
-    <div class="col-12 col-md-4 mb-4">
-      <input type="number" class="form-control" placeholder="Cantidad en Stock" id="cantidadEnStock" required>
-    </div>
-  </div>
-  <div class="row g-3">
-    <div class="col-12 col-md-4 mb-4">
-      <input type="number" class="form-control" placeholder="Precio de Compra" id="precioDeCompra" required>
-    </div>
-    <div class="col-12 col-md-4 mb-4">
-      <input type="number" class="form-control" placeholder="Precio de Venta" id="precioDeVenta" required>
-    </div>
-    <div class="col-12 col-md-4 mb-4">
-      <input type="text" class="form-control" placeholder="Proveedor" id="proveedor" required>
-    </div>
-  </div>
-  <div class="row">
-    <button type="submit" class="btn btn-primary" id="registrarPoducto"
-      data-url="{{ route('agregar.Inventario') }}">Registrar</button>
   </div>
 </div>
-
 <br>
 
 <div class="container-md align-items-end">
@@ -95,6 +112,10 @@
           <button class="btn btn-outline-success " style="margin-left: 10px;" type="button"
             id="eliminarElementoInventario" data-url="{{route('eliminar.dato')}}">
             Eliminar</button>
+          <br>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            registrar producto
+          </button>
         </form>
       </div>
 

@@ -19,9 +19,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow p-3">
         <div class="container-fluid">
             <button class="btn btn-dark me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
-                <i class="bi bi-list"></i>
+                <i class="bi bi-list">  </i>
             </button>
-            <a class="navbar-brand" href="#">Cruz Azul</a>
+            <a class="navbar-brand" href="#">Soyuz S.A.</a>
             <div class="d-flex align-items-center ms-auto">
                 @if(isset($user))
                     <span class="text-white me-3">{{ $user['name'] }} ({{ $user['role'] }})</span>
